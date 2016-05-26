@@ -1,0 +1,698 @@
+ <!DOCTYPE html>
+<html>
+
+	<head>
+	<script type="text/javascript" >
+		 window.onload = function () {
+        	var list= document.getElementById('list-pic');
+        	var timer;
+        	var time;
+        	var speed=-50;
+        	var move=0;
+        	var offset=-992;
+        	list.onmouseover = function(){
+//      		movestop();       		
+        	}
+        	list.onmouseout = function(){
+//      		timer=setInterval(movestar,20);
+        	}      
+		    function  movestar(){		   	    
+	   	    	if(move > offset){
+	   	    		move+=speed;
+	   	    		list.style.left = parseInt(list.style.left)  + speed + 'px'; 
+	   	    		setTimeout(movestar,10);
+		   	    }else{
+		   	    	var lastoffset=offset-move;
+		   	    	list.style.left=parseInt(list.style.left)+lastoffset+"px";		   	    	
+		   	    	move=0;
+		   	    	returen ;
+		   	    }
+		   	}
+		    function play(){
+		    	timer=setTimeout(function(){
+		    		if(parseInt(list.style.left) > -(992*4)){
+		    			movestar();
+		    		}else{
+		    			list.style.left=0+"px";
+		    		}
+		    		play();
+		    	},2000);
+		    }
+		    function movestop() {
+                clearTimeout(timer);
+            }
+			play();
+		}         
+  
+ 
+	</script>
+		<meta charset="utf-8">
+		<title>企业形象</title>
+		<style type="text/css">
+			
+			* {
+				margin: 0 auto;
+				padding: 0;
+			}
+			body{
+				width: 992px;
+				height: auto;
+				/*background: #FFF;*/
+				
+			}
+			
+			.container {
+				margin-top: 20px;
+				height: 1000px;				
+				width: 992px;
+				/*background: red;*/
+				border: none;
+				-webkit-box-shadow: inset 0 0 2px #A3A3A3;
+				-moz-box-shadow: inset 0 0 2px #3A3A3;
+				box-shadow: inset 0 0 2px #A3A3A3;
+			}
+			
+			.container > font {
+				font-style: "微软雅黑";
+				font-size: 30px;
+				font-weight: 400;
+			}
+			
+			.logo {
+				width: 992px;
+				height: 100px;
+				line-height: 100px;
+				float: left;
+				background: #ECECEC;
+		
+			}
+			
+			.logo a:link,
+			.logo  a:visited,
+			.logo a:active {
+				margin-left: 28px;
+				
+				color: #505050;
+				text-decoration: none;
+			}
+			
+			.st-container {
+				width: 390px;
+				height: 120px;
+				line-height: 120px;
+				float: right;
+				margin: 0 20px;
+				position: relative;
+			
+				padding: 0;
+			}
+			
+			.st-container input {
+				border: none;
+				width: 300px;
+				height: 30px;
+				display: inline-block;
+				-webkit-box-shadow: inset 0 0 2px #A3A3A3;
+				-moz-box-shadow: inset 0 0 2px #3A3A3;
+				box-shadow: inset 0 0 2px #A3A3A3;
+			}
+			
+			.st-container > button {
+				height: 28px;
+				background: #00AAFF;
+				border: none;
+				display: inline-block;
+				padding: 0 ;
+			}
+			
+			.nav {
+				width: 992px;
+				height: 50px;
+				background: #00AEFF;
+				position: absolute;
+				top: 120px;
+				margin-bottom: 1px;
+			}
+			
+			.faceul,
+			.faceul-1 {
+				list-style: none;
+			}
+			
+			.faceul li {
+				width: 123px;
+				height: 50px;
+				line-height: 50px;
+				float: left;
+				text-align: center;
+				border-left: 1px #00A3FF solid;
+				border-collapse: collapse;
+			}
+			
+			.faceul li a {
+				text-decoration: none;
+				color: #DBFFFF;
+				display: block;
+			}
+			
+			.faceul li a:hover {
+				color: #DBFFFF;
+				;
+				background: #00A1FF;
+				padding：0 25px;
+			}
+			
+			.faceul-1 {
+				display: none;
+				margin-top: 1px;
+				position: relative;
+			}
+			
+			.faceul-1 li {
+				height: 30px;
+				line-height: 25px;
+				font-size: 16px;
+				background: #81D4FE;
+				opacity: 10;
+				filter: 0.1;
+				border: none;
+			}
+			
+			.faceul-1 li a {
+				text-decoration: none;
+				font-family: "微软雅黑";
+				font-size: 14px;
+				font-weight: 100;
+				color: #FFF;
+				/*color: #00A1FF;*/
+				display: block;
+				padding: 0 12px;
+				opacity: 10;
+				filter: 0.1;
+			}
+			
+			.faceul li:hover .faceul-1 {
+				display: block;
+				z-index: 999;
+			}
+			
+			.faceul-1 li a:hover {
+				background: #00A1FF;
+				color: #000;
+				opacity: 20;
+				filter: 0.2;
+			}
+			#player{
+				margin-top: 1px;
+				width: 992px;
+				height:300px;
+				overflow: hidden;
+				position: absolute;				
+				top: 170px;
+			}
+			#list-pic {				
+				width: 4960px;
+				height: 300px;
+				z-index: 1;		
+				position: relative;	
+				left:0;	
+			}
+			#list-pic img{
+				width: 992px;
+				height: 300px;
+				float: left;
+				margin: 0;
+			}
+			.cin {
+				margin-top: 20px;
+				width: 992px;
+				height: 250px;
+				margin-bottom: 20px;
+				position: absolute;
+				top: 474px;
+				margin-bottom: 10px;
+			}
+			
+			.cin-1 {
+				height：32px;
+				width: 567px;
+				float: left;
+				/*background-color: #CCC;*/
+				background: transparent url("pic/title.png") no-repeat scroll 0px 0px;
+				margin-left: 20px;
+			}
+			
+			.cin-1 span,
+			.con-1 span {
+				display: block;
+				float: left;
+				line-height: 30px;
+				height: 32px;
+			}
+			
+			.cin-1 a {
+				display: block;
+				float: right;
+				font-size: 12px;
+				display: block;
+			}
+			
+			.cin-2 {
+				clear: both;
+				height：250px； width: 100%;
+				float: left;
+			}
+			
+			.cin-2 img {
+				height: 140px;
+				width: 203px;
+				padding: 20px 5px;
+				float: left;
+			}
+			
+			.cin-2 p {
+				padding: 30px 0;
+				float: left;
+				width: 341px;
+				height: 154px;
+				text-indent: 2em;
+				color: #505050;
+				font: 12px/22px simsun, Arial;
+			}
+			
+			.con-1 {
+				height：32px;
+				width: 348px;
+				float: right;
+				background-color: #CCC;
+				/*margin-top:-10px*/
+				background: transparent url("pic/title.png") no-repeat scroll 0px 0px;
+				position: absolute;
+				left: 580px;
+				margin-left: 20px;
+			}
+			
+			.con-1 a {
+				display: block;
+				float: right;
+				font-size: 12px;
+				display: block;
+			}
+			
+			.con-2 {
+				float: right;
+				width: 400px;
+				height: 220px;
+				background: url();
+			}
+			
+			.cin-1 a img,
+			.con-1 a img {
+				width: 33px;
+				height: 5px;
+				line-height: 30px;
+				float: right;
+				margin-top: 15px;
+			}
+			
+			.con-2 ul {
+				list-style: none;
+				height: 100%;
+				width: 100%;
+				margin-left: 20PX;
+			}
+			
+			.con-2 ul li img {
+				margin-left: 10px;
+				float: left;
+				width: 90px;
+				height: 60px;
+				padding: 20px 10px;
+				display: none;
+			}
+			
+			.con-2 ul li:hover img {
+				display: block;
+				padding:20px;
+			}
+			
+			.con-2 ul li ul {
+				list-style: circle;
+				
+			}
+			
+			.con-2 ul li ul li {
+				margin-left: 20px 10px;
+				height: auto;
+				width:240px ;
+				margin-left:0 10px;  
+			}
+			
+			.con-2 ul li ul p {
+				display: none;
+				line-height: normal;
+				color: #505050;
+				font: 12px/22px simsun, Arial;
+				overflow: hidden;
+			}
+			
+			.con-2 ul li:hover ul p {
+				display: block;
+			}
+			
+			.con-2 ul li ul a {
+				text-decoration: none;
+				color: #505050;
+				font: 12px/22px simsun, Arial;
+			}
+			
+			.con-2 ul li:hover ul a {
+				font-size: 14px;
+				font-weight: 700px;
+				font-family: "微软雅黑";
+			}
+			
+			.con-2 ul li ul a:hover {
+				text-decoration: underline;
+				color: red;
+				font-size: 14px;
+			}
+			
+			#recommend {
+				height: auto;
+				width: 949px;
+				margin: 0 auto;
+				/*background-color: #CCC;*/
+				position: relative;
+				top: 700px;
+				padding: 0;
+			}
+			
+			.cut {
+				height: 37px;
+				width: 100%;
+				line-height: 30px;
+				background-color: #CCC;
+				position: absolute;
+				top: 10px;
+				background: transparent url("pic/title.png") no-repeat scroll 0px 0px;
+			}
+			
+			#cut_img {
+				width: 45px;
+				height: 32px;
+				float: right;
+				background-color: #FFF;
+			}
+			
+			.cut img {
+				width: 33px;
+				height: 5px;
+				line-height: 30px;
+				float: right;
+				margin-top: 15px;
+				/*background: transparent url("") no-repeat scroll 0px 0px;*/
+				/*float: left;*/
+			}
+			
+			.title {
+				display: block;
+				width: 100px;
+				height: 30px;
+				font-size: 14px;
+				float: left;
+				margin-left: 20px;
+			}
+			
+			.list_img {
+				width: 949px;
+				height: auto;
+				float: left;
+				position: absolute;
+				top: 60px;
+				background-color: #FFF;
+				overflow: hidden;
+			}
+			
+			.list_img a {
+				display: block;
+				float: left;
+				width: 155px;
+				height: 152.5px;
+				/*margin-right: 1px;*/
+				text-align: center;
+				text-decoration: none;
+				font-size: 14px;
+			}
+			
+			.list_sapn {
+				color: #000;
+			}
+			
+			.list_img a img {
+				width: 150px;
+				height: 110px;
+				border: 1px solid #CCC;
+			}
+			
+			.bottonmenu {
+				width: 992px;
+				height: 89px;
+				position: relative;
+				top:920px;
+				
+			}
+			.link_menu{
+				width: 971px;
+				position: absolute;
+				margin-top: 15px;
+				padding: 10px;
+				border: 0px none;
+				height: 28px;
+				color: #FFF;
+				font: 12px/28px "SimSun",Arial,sans-serif;
+				text-align: center;
+				background: #00AEFF;
+			
+			}
+			.link_menu a{
+				float: left;
+				background: #00B1FF;
+				text-decoration: none;
+                height:13px;
+                line-height: 13px;
+                width: 58px;
+                margin: 0 10px;
+                font: 12px Verdana,Arial,Helvetica,sans-serif;
+                color: #505050;
+                text-align: center;
+                display: block;
+			}
+			.link_menu a:hover{
+				text-decoration: underline;
+                color: #FFF ;
+           
+				
+			}
+			.link_menu span{
+				
+				float: right;
+				margin-right: 10px;
+				
+			}
+			
+		</style>
+		  
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="logo">
+				<a href="#"><img src="pic/1.png" /></a>
+				<div class="st-container">
+					<input type="search">
+					<button>搜索</button>
+				</div>
+			</div>
+			<div class="nav">
+				<ul class="faceul">
+					<li><a href="http://www.baidu.com" target=" _blank">网站首页</a>
+						<link rel="stylesheet" type="text/css" href="" />
+					</li>
+					<li><a href="#">公司简介</a>
+						<ul class="faceul-1">
+							<li><a href="">公司简介</a></li>
+							<li><a href="">企业文化</a></li>
+							<li><a href="">企业荣誉</a></li>
+							<li><a href="">经营理念</a></li>
+							<li><a href="">网络销售</a></li>
+						</ul>
+
+					</li>
+					<li><a href="http://www.baidu.com" target="_self">新闻动态</a>
+						<ul class="faceul-1">
+							<li><a href="">最新动态</a></li>
+							<li><a href="">业界资讯</a></li>
+
+						</ul>
+					</li>
+					<li><a href="#">产品系列</a></li>
+					<li><a href="#">应用案例</a></li>
+					<li><a href="#">品牌加盟</a>
+						<ul class="faceul-1">
+							<li><a href="">加盟须知</a></li>
+							<li><a href="">加盟条件</a></li>
+							<li><a href="">加盟程序</a></li>
+							<li><a href="">加盟申请/a></li >
+	     			<li><a href="">门店展示</a></li>
+						</ul>
+					</li>
+					<li><a href="#">客户服务</a>
+						<ul class="faceul-1">
+							<li><a href="">服务理念</a></li>
+							<li><a href="">服务宗旨</a></li>
+							<li><a href="">联系方式</a></li>
+							<li><a href="">客户留言</a></li>
+						</ul>
+					</li>
+					<li><a href="#">人才招聘</a></li>
+				</ul>
+			</div>
+
+			<!--<div>-->
+				
+					
+			<div id="player">
+				<div  id="list-pic" style="left: 0;"><!--class="show-pic"-->
+					<!--<marquee direction="left" scrollamount="6" behavior="scroll"> <img src="1.jpg" /></marquee>-->
+                      <img src="pic/1365407823.jpg" alt="1"/ >
+                      <img src="pic/1365407823.jpg" alt="1"/ >
+                      <img src="pic/1365407843.jpg"  alt="2"/ >
+                      <img src="pic/1365407831.jpg" alt="3" / >
+                      <img src="pic/1365407831.jpg"  alt="3"/ >
+
+				</div>
+			</div>	
+        
+         
+				<div class="cin" id="cin">
+
+					<div class="cin-1">
+						<span class="title">公司简介</span>
+						<div id="cut_img">
+							<a href="#"><img src="pic/more.png" /></a>
+						</div>
+					</div>
+					<div class="cin-2">
+						<img src="pic/1366797392.png" />
+						<p>企业形象通用成品网站系列预装了网页模块、文章模块、产品模块、图文模块、 招聘模块、广告模块等功能，预设了企业简介、企业文化、最新动态、产品展示、经典案例、品牌加盟、 人才招聘、联系方式、客户留言等栏目， 用户也可根据自己的需要方便调整；企业形象通用成品网站系列采用原创的企业形象宣传广告图片轮播， 精心设计制作，符合大多数企业网站的需求， 是企业建立形象宣传和产品展示网站的最佳之选...
+						</p>
+
+					</div>
+
+					<div class="con-1">
+
+						<span class="title">新闻介绍</span>
+						<div id="cut_img">
+							<a href="#"><img src="pic/more.png" /></a>
+
+						</div>
+					</div>
+					<div class="con-2">
+
+						<ul>
+
+							<li><img src="pic/1365417671.jpg" class="Pic" />
+								<ul>
+									<li>
+										<a href="">本公司参加第八十届广州商品交易会</a>
+										<br />
+										<p>
+											本公司参加第八十届广州商品交易会本公司参加第八十届广州商品交易会 </p>
+									</li>
+								</ul>
+
+							</li>
+
+							<li><img src="pic/1365417671.jpg" class="Pic" />
+								<ul>
+									<li>
+										<a href="">中科院院士王教授来本公司访问调研</a>
+										<br />
+										<p>
+											本公司参加第八十届广州商品交易会本公司参加第八十届广州商品交易会 </p>
+									</li>
+								</ul>
+
+							</li>
+							<li><img src="pic/1365417671.jpg" class="Pic" />
+								<ul>
+									<li>
+										<a href="">本公司通过国家科技部高新技术企业</a>
+										<br />
+										<p>
+											本公司通过国家科技部高新技术企业认证本公司通过国家科技部高新技术企业认 </p>
+									</li>
+								</ul>
+
+							</li>
+							<li><img src="pic/1365417671.jpg" class="Pic" />
+								<ul>
+									<li>
+										<a href="">某某公司新版网站全新改版成功</a>
+										<br />
+										<p>
+											某某公司新版网站全新改版成功某某公司新版网站全新改版成功某某公司新版网 </p>
+									</li>
+								</ul>
+
+							</li>
+
+						</ul>
+					</div>
+				</div>
+
+				<div id="recommend">
+					<div class="cut">
+						<span class="title">产品推荐</span>
+						<div id="cut_img">
+							<a href=""><img src="pic/more.png" /></a>
+						</div>
+
+					</div>
+
+					<div class="list_img">
+					
+							
+						<a href="" class="picture" id="pic-1"  checked="checked"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+						<a href="" class="picture" id="pic-1"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+						<a href="" class="picture" id="pic-1"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+						<a href="" class="picture" id="pic-1"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+						<a href="" class="picture" id="pic-1"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+						<a href="" class="picture" id="pic-1"><img src="pic/11.jpg"><span class="list_sapn">我的产品名称</span></a>
+				
+					</div>
+				</div>
+
+				<div class="bottonmenu">
+         
+			         <div class="link_menu">
+			         	<a href=" ">|关于我们</a>
+			         	<a href=" ">|联系方式</a>
+			         	<a href=" ">|给我留言</a>
+			         	<a href=" ">|人才招聘</a>
+			         	<a href=" ">|友情链接|</a>
+			         	 <span>
+                    	版权所有 Copyright(C)2013-2020 企业形象系列成品网站演示
+                   </span>
+			         </div>
+         
+        	
+                   
+        	
+                </div>
+      
+		</div>
+	</body>
+
+</html>
